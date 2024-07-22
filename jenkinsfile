@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Get script') {
+            steps {
+                git branch: "main", url: "https://github.com/glazedonuts616/hw_jenk_1.git"
+                echo 'Adding github repo to project....'
+            }
+        }
+
+        stage('Running the Script') {
+            steps {
+                echo "Running the Script..."
+                      sh "python3 main.py"
+            }
+        }
+    }
+}
